@@ -5,13 +5,13 @@ const categories = ['Semua', 'Hotang', 'Corndog', 'Paket Hemat']
 const menuItems = [
   // Hotang
   { id: 1, cat: 'Hotang', emoji: '🥔', name: 'Hotang Original', desc: 'Hotdog kentang crispy dengan saus keju spesial. Tekstur luar renyah, dalam lembut!', price: 16000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: false },
-  { id: 2, cat: 'Hotang', emoji: '🧀', name: 'Hotang Mozza', desc: 'Hotdog kentang dengan kejutan mozzarella meleleh di dalamnya. Premium banget!', price: 22000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: true },
+  { id: 2, cat: 'Hotang', emoji: '🧀', name: 'Hotang Mozza', desc: 'Hotdog kentang dengan kejutan mozzarella meleleh di dalamnya. Premium banget!', price: 22000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: false },
   { id: 3, cat: 'Hotang', emoji: '🌶️', name: 'Hotang Pedas Manis', desc: 'Hotdog kentang dengan saus sambal manis khas rumahan. Buat yang suka pedes!', price: 14000, badge: 'Pedas', badgeColor: '#dc2626', spicy: true, new: false },
   // { id: 4, cat: 'Hotang', emoji: '🥓', name: 'Hotang Beef Spesial', desc: 'Hotdog kentang dengan sosis daging sapi premium, lebih padat dan gurih.', price: 16000, badge: 'Premium', badgeColor: '#b45309', spicy: false, new: false },
 
   // Corndog
   { id: 5, cat: 'Corndog', emoji: '🌽', name: 'Corndog Classic', desc: 'Corndog original dengan balutan tepung jagung renyah. Crispy sampai gigitan terakhir!', price: 15000, badge: 'Favorit', badgeColor: '#ea580c', spicy: false, new: false },
-  { id: 6, cat: 'Corndog', emoji: '🧀', name: 'Corndog Mozza', desc: 'Corndog dengan isian mozzarella stretchy di dalam sosis. Double keju double nikmat!', price: 19000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: true },
+  { id: 6, cat: 'Corndog', emoji: '🧀', name: 'Corndog Mozza', desc: 'Corndog dengan isian mozzarella stretchy di dalam sosis. Double keju double nikmat!', price: 19000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: false },
   { id: 7, cat: 'Corndog', emoji: '🌶️', name: 'Corndog Spicy', desc: 'Corndog dengan lapisan bumbu pedas yang bikin ketagihan. Awas kebanyakan!', price: 15000, badge: 'Pedas 🔥', badgeColor: '#dc2626', spicy: true, new: false },
 
   // Minuman
@@ -204,7 +204,7 @@ export default function Menu() {
                   <h3 style={{
                     fontFamily: 'var(--font-display)',
                     fontWeight: 700,
-                    fontSize: '1.1rem',
+                    fontSize: '1.1rem', 
                     color: 'var(--text-primary)',
                     margin: '0 0 6px',
                   }}>{item.name}</h3>

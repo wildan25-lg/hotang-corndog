@@ -17,7 +17,7 @@ const menuHighlights = [
     desc: 'Corndog renyah dengan balutan tepung jagung premium',
     price: 'Rp 15.000',
     badge: 'Favorit',
-    badgeColor: '#ea580c',
+    badgeColor: '#f59e0b',
     bg: 'linear-gradient(135deg, #ffedd5, #fed7aa)',
     bgDark: 'linear-gradient(135deg, #44403c, #292524)',
   },
