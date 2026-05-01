@@ -250,7 +250,7 @@ export default function Home() {
       }}>
         <div className="animate-marquee" style={{ display: 'flex', whiteSpace: 'nowrap', width: 'max-content' }}>
           {Array(4).fill(null).map((_, i) => (
-            <span key={i} style={{ fontFamily: 'var(--font-hand)', fontSize: '1.1rem', color: 'white', padding: '0 2rem' }}>
+            <span key={i} style={{ fontFamily: 'var(--font-hand)', fontSize: '1.5rem', color: 'white', padding: '0 2rem' }}>
               🌭 Hotang Original &nbsp;•&nbsp; 🌽 Corndog Crispy &nbsp;•&nbsp; 🧀 Hotang Mozza &nbsp;•&nbsp; 🥔 Hotdog Kentang Premium &nbsp;•&nbsp; ⭐ Rating 4.9 &nbsp;•&nbsp; 🔥 Lagi Hits! &nbsp;•&nbsp;
             </span>
           ))}

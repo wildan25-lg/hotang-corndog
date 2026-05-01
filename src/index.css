@@ -47,7 +47,7 @@
   /* Font families */
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
-  --font-hand: "Caveat", cursive;
+  --font-hand: "Poppins", cursive;
 
   /* Font sizes */
   --text-xs: 0.75rem;

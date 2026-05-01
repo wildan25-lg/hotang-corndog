@@ -61,7 +61,7 @@ export default function Kontak() {
           Hubungi Kami
         </h1>
         <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'var(--text-secondary)', margin: 0 }}>
-          Kami siap membantu kamu setiap hari 17.00 – 22.00 WIB 🕙
+          Kami siap membantu kamu setiap hari
         </p>
       </div>
 
