@@ -26,7 +26,7 @@ const menuHighlights = [
     name: 'Hotang Mozza',
     desc: 'Hotang premium dengan mozzarella meleleh di dalam',
     price: 'Rp 22.000',
-    badge: 'Baru!',
+    badge: 'Bestseller',
     badgeColor: '#f59e0b',
     bg: 'linear-gradient(135deg, #fee2e2, #fecaca)',
     bgDark: 'linear-gradient(135deg, #44403c, #292524)',
