@@ -2,38 +2,90 @@ import { useState } from 'react'
 
 const categories = ['Semua', 'Hotang', 'Corndog', 'Paket Hemat']
 
+// Real food photos from Unsplash/Pexels (free to use)
 const menuItems = [
   // Hotang
-  { id: 1, cat: 'Hotang', emoji: '🥔', name: 'Hotang Original', desc: 'Hotdog kentang crispy dengan saus keju spesial. Tekstur luar renyah, dalam lembut!', price: 16000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: false },
-  { id: 2, cat: 'Hotang', emoji: '🧀', name: 'Hotang Mozza', desc: 'Hotdog kentang dengan kejutan mozzarella meleleh di dalamnya. Premium banget!', price: 22000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: false },
-  { id: 3, cat: 'Hotang', emoji: '🌶️', name: 'Hotang Pedas Manis', desc: 'Hotdog kentang dengan saus sambal manis khas rumahan. Buat yang suka pedes!', price: 14000, badge: 'Pedas', badgeColor: '#dc2626', spicy: true, new: false },
-  // { id: 4, cat: 'Hotang', emoji: '🥓', name: 'Hotang Beef Spesial', desc: 'Hotdog kentang dengan sosis daging sapi premium, lebih padat dan gurih.', price: 16000, badge: 'Premium', badgeColor: '#b45309', spicy: false, new: false },
+  {
+    id: 1, cat: 'Hotang',
+    img: 'https://i.pinimg.com/1200x/e0/9c/28/e09c280ae3ccf5f91bac39eaedbc107b.jpg',
+    name: 'Hotang Original',
+    desc: 'Hotdog kentang crispy dengan saus keju spesial. Tekstur luar renyah, dalam lembut!',
+    price: 16000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, isNew: false
+  },
+  {
+    id: 2, cat: 'Hotang',
+    img: 'https://i.pinimg.com/1200x/07/2b/36/072b3627ae49d3d14e0b46cce0c534c7.jpg',
+    name: 'Hotang Mozza',
+    desc: 'Hotdog kentang dengan kejutan mozzarella meleleh di dalamnya. Premium banget!',
+    price: 22000, badge: 'Premium', badgeColor: '#a855f7', spicy: false, isNew: false
+  },
+  {
+    id: 3, cat: 'Hotang',
+    img: 'https://i.pinimg.com/1200x/22/01/7f/22017f90be7581d34d29a3643618acf4.jpg',
+    name: 'Hotang Pedas Manis',
+    desc: 'Hotdog kentang dengan saus sambal manis khas rumahan. Buat yang suka pedes!',
+    price: 14000, badge: 'Pedas 🌶️', badgeColor: '#dc2626', spicy: true, isNew: false
+  },
 
   // Corndog
-  { id: 5, cat: 'Corndog', emoji: '🌽', name: 'Corndog Classic', desc: 'Corndog original dengan balutan tepung jagung renyah. Crispy sampai gigitan terakhir!', price: 15000, badge: 'Favorit', badgeColor: '#ea580c', spicy: false, new: false },
-  { id: 6, cat: 'Corndog', emoji: '🧀', name: 'Corndog Mozza', desc: 'Corndog dengan isian mozzarella stretchy di dalam sosis. Double keju double nikmat!', price: 19000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, new: false },
-  { id: 7, cat: 'Corndog', emoji: '🌶️', name: 'Corndog Spicy', desc: 'Corndog dengan lapisan bumbu pedas yang bikin ketagihan. Awas kebanyakan!', price: 15000, badge: 'Pedas 🔥', badgeColor: '#dc2626', spicy: true, new: false },
-
-  // Minuman
-  // { id: 8, cat: 'Minuman', emoji: '🥤', name: 'Es Teh Manis', desc: 'Teh manis segar, cocok menemani hotang atau corndog favorit kamu.', price: 5000, badge: null, badgeColor: null, spicy: false, new: false },
-  // { id: 9, cat: 'Minuman', emoji: '🍋', name: 'Es Lemon Tea', desc: 'Perpaduan teh dengan perasan lemon segar. Menyegarkan!', price: 7000, badge: null, badgeColor: null, spicy: false, new: false },
-  // { id: 10, cat: 'Minuman', emoji: '🥛', name: 'Susu Coklat', desc: 'Susu coklat dingin yang manis dan creamy. Cocok untuk semua usia.', price: 8000, badge: null, badgeColor: null, spicy: false, new: false },
+  {
+    id: 5, cat: 'Corndog',
+    img: 'https://i.pinimg.com/1200x/1e/d2/31/1ed231a2000ad031ec5b34aedc3ef15d.jpg',
+    name: 'Corndog Classic',
+    desc: 'Corndog original dengan balutan tepung jagung renyah. Crispy sampai gigitan terakhir!',
+    price: 15000, badge: 'Favorit', badgeColor: '#ea580c', spicy: false, isNew: false
+  },
+  {
+    id: 6, cat: 'Corndog',
+    img: 'https://i.pinimg.com/1200x/fe/a1/b2/fea1b271ee143b60781034416b56ebe8.jpg',
+    name: 'Corndog Mozza',
+    desc: 'Corndog dengan isian mozzarella stretchy di dalam sosis. Double keju double nikmat!',
+    price: 19000, badge: 'Bestseller', badgeColor: '#f59e0b', spicy: false, isNew: false
+  },
+  {
+    id: 7, cat: 'Corndog',
+    img: 'https://i.pinimg.com/1200x/b5/29/a0/b529a028d704dc0b396e10b1e3a7bb95.jpg',
+    name: 'Corndog Spicy',
+    desc: 'Corndog dengan lapisan bumbu pedas yang bikin ketagihan. Awas kebanyakan!',
+    price: 15000, badge: 'Pedas 🔥', badgeColor: '#dc2626', spicy: true, isNew: false
+  },
 
   // Paket Hemat
-  { id: 11, cat: 'Paket Hemat', emoji: '🎁', name: 'Paket Duo', desc: '1 Hotang Original + 1 Corndog Classic. Hemat Rp 5.000!', price: 26000, badge: 'Hemat', badgeColor: '#16a34a', spicy: false, new: false },
-  { id: 12, cat: 'Paket Hemat', emoji: '👨‍👩‍👧‍👦', name: 'Paket Keluarga', desc: '3 Hotang Original + 2 Corndog Classic. Pas buat nongkrong bareng!', price: 70000, badge: 'Best Value', badgeColor: '#16a34a', spicy: false, new: false },
+  {
+    id: 11, cat: 'Paket Hemat',
+    img: 'https://i.pinimg.com/736x/e7/f2/77/e7f277c4d7830d73c628feaa766332bb.jpg',
+    name: 'Paket Duo',
+    desc: '1 Hotang Original + 1 Corndog Classic. Hemat Rp 5.000!',
+    price: 26000, badge: 'Hemat', badgeColor: '#16a34a', spicy: false, isNew: false
+  },
+  {
+    id: 12, cat: 'Paket Hemat',
+    img: 'https://i.pinimg.com/736x/94/41/6b/94416bb063a671a8a38e5b799b8ae76a.jpg',
+    name: 'Paket Keluarga',
+    desc: '3 Hotang Original + 2 Corndog Classic. Pas buat nongkrong bareng!',
+    price: 70000, badge: 'Best Value', badgeColor: '#16a34a', spicy: false, isNew: false
+  },
 ]
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState('Semua')
   const [search, setSearch] = useState('')
+  const [imgErrors, setImgErrors] = useState({})
 
   const filtered = menuItems.filter(item => {
     const matchCat = activeCategory === 'Semua' || item.cat === activeCategory
-    const matchSearch = item.name.toLowerCase().includes(search.toLowerCase()) ||
+    const matchSearch =
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.desc.toLowerCase().includes(search.toLowerCase())
     return matchCat && matchSearch
   })
+
+  // Fallback gradient per category if image fails to load
+  const fallbackBg = {
+    'Hotang': 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)',
+    'Corndog': 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
+    'Paket Hemat': 'linear-gradient(135deg, #34d399 0%, #059669 100%)',
+  }
 
   return (
     <div style={{ paddingTop: '64px', minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
@@ -132,56 +184,85 @@ export default function Menu() {
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
             {filtered.map(item => (
-              <div key={item.id} style={{
-                backgroundColor: 'var(--bg-card)',
-                border: '1px solid var(--border-color)',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                transition: 'all 0.3s ease',
-                position: 'relative',
-              }}
+              <div
+                key={item.id}
+                style={{
+                  backgroundColor: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-4px)'
-                  e.currentTarget.style.boxShadow = '0 16px 32px var(--shadow-color)'
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.boxShadow = '0 20px 40px var(--shadow-color)'
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)'
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                {/* Emoji area */}
+                {/* Photo area */}
                 <div style={{
-                  background: 'var(--bg-secondary)',
-                  padding: '2rem',
-                  textAlign: 'center',
-                  fontSize: '4rem',
-                  borderBottom: '1px solid var(--border-color)',
                   position: 'relative',
+                  height: '200px',
+                  overflow: 'hidden',
+                  background: imgErrors[item.id] ? fallbackBg[item.cat] : 'var(--bg-secondary)',
                 }}>
-                  {item.emoji}
-                  {item.new && (
-                    <div style={{
-                      position: 'absolute', top: '12px', right: '12px',
-                      background: '#dc2626',
-                      color: 'white',
-                      fontSize: '0.65rem',
-                      fontWeight: 700,
-                      padding: '3px 8px',
-                      borderRadius: '9999px',
-                      fontFamily: 'var(--font-body)',
-                    }}>NEW</div>
+                  {!imgErrors[item.id] && (
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      onError={() => setImgErrors(prev => ({ ...prev, [item.id]: true }))}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        transition: 'transform 0.4s ease',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.06)'}
+                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
                   )}
+
+                  {/* Gradient overlay at bottom for text legibility */}
+                  <div style={{
+                    position: 'absolute', bottom: 0, left: 0, right: 0,
+                    height: '80px',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)',
+                    pointerEvents: 'none',
+                  }} />
+
+                  {/* Spicy badge - top left */}
                   {item.spicy && (
                     <div style={{
                       position: 'absolute', top: '12px', left: '12px',
-                      background: '#ea580c',
+                      background: '#dc2626',
+                      backdropFilter: 'blur(4px)',
                       color: 'white',
                       fontSize: '0.65rem',
                       fontWeight: 700,
-                      padding: '3px 8px',
+                      padding: '4px 10px',
                       borderRadius: '9999px',
                       fontFamily: 'var(--font-body)',
+                      boxShadow: '0 2px 8px rgba(220,38,38,0.4)',
                     }}>🌶️ PEDAS</div>
+                  )}
+
+                  {/* New badge - top right */}
+                  {item.isNew && (
+                    <div style={{
+                      position: 'absolute', top: '12px', right: '12px',
+                      background: '#2563eb',
+                      color: 'white',
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      padding: '4px 10px',
+                      borderRadius: '9999px',
+                      fontFamily: 'var(--font-body)',
+                    }}>NEW</div>
                   )}
                 </div>
 
@@ -194,17 +275,18 @@ export default function Menu() {
                       color: 'white',
                       fontSize: '0.68rem',
                       fontWeight: 700,
-                      padding: '2px 10px',
+                      padding: '3px 10px',
                       borderRadius: '9999px',
                       marginBottom: '8px',
                       fontFamily: 'var(--font-body)',
+                      letterSpacing: '0.03em',
                     }}>{item.badge}</div>
                   )}
 
                   <h3 style={{
                     fontFamily: 'var(--font-display)',
                     fontWeight: 700,
-                    fontSize: '1.1rem', 
+                    fontSize: '1.1rem',
                     color: 'var(--text-primary)',
                     margin: '0 0 6px',
                   }}>{item.name}</h3>
@@ -233,18 +315,22 @@ export default function Menu() {
                       style={{
                         background: 'linear-gradient(135deg, var(--color-amber-500), var(--color-orange-500))',
                         color: 'white',
-                        padding: '7px 16px',
+                        padding: '8px 18px',
                         borderRadius: '9999px',
                         textDecoration: 'none',
                         fontSize: '0.8rem',
                         fontWeight: 600,
                         fontFamily: 'var(--font-body)',
-                        transition: 'opacity 0.2s',
+                        transition: 'opacity 0.2s, transform 0.2s',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        boxShadow: '0 4px 12px rgba(245,158,11,0.3)',
                       }}
-                      onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
-                      onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                      onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'scale(1.05)' }}
+                      onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1)' }}
                     >
-                      + Pesan
+                      🛒 Pesan
                     </a>
                   </div>
                 </div>

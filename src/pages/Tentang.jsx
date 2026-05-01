@@ -211,8 +211,8 @@ export default function Tentang() {
 
           <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             {[
-              { avatar: '👨‍🍳', name: 'Udin', role: 'Founder & Head Chef', desc: 'Pencinta camilan yang mengubah hobi jadi bisnis nyata.' },
-              { avatar: '👩‍💼', name: 'Diana', role: 'Marketing & Media Sosial', desc: 'Memastikan Hotang dikenal dan dicintai semua orang.' },
+              { avatar: '👨‍🍳', name: 'Asep', role: 'Founder & Head Chef', desc: 'Pencinta camilan yang mengubah hobi jadi bisnis nyata.' },
+              { avatar: '👩‍💼', name: 'Sinta', role: 'Marketing & Media Sosial', desc: 'Memastikan Hotang dikenal dan dicintai semua orang.' },
             ].map((member, i) => (
               <div key={i} style={{
                 backgroundColor: 'var(--bg-card)',
